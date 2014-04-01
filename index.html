@@ -1,0 +1,67 @@
+<html>
+
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+<script>
+function parse(){
+	var username = $('#name').val();
+
+	// $.get("https://api.github.com/users/" + username + "/repos", function(data){//list of all repos
+
+	// 	console.log(data);				
+
+	// });
+
+
+//unasynchronous
+	nonasync("https://api.github.com/users/" + username + "/subscriptions", function(data){
+		console.log(data);
+
+		for(var i in data){
+			var newURL = data[i].commits_url.replace("{/sha}", "");
+			console.log(newURL);
+			
+			nonasync(newURL, function(data2){
+				for(var j in data2){
+					if(data2[j].author == username){
+						nonasync(newURL + "/" + data2[j].sha, function(data3){
+							console.log(data3.stats)
+						})
+					}
+				}
+
+			})
+		}
+
+	});
+
+	console.log('x');
+
+}
+
+
+function nonasync(u, cb){//so it's only executed once last call has been rendered
+
+	$.ajax({
+	  url: u,
+	  success: cb,
+	  async:false,
+	  error:function(){alert('something went wrong :(')}
+	});
+
+}
+
+
+</script>
+
+
+</head>
+<body>
+<p>Github Username</p>
+<input type="text" id="name"/>
+<input type="button" onclick="parse()" value="parse">
+
+
+</body>
+</html>
