@@ -1,0 +1,41 @@
+<head>
+  <title>Stats</title>
+</head>
+
+<body>
+	<div style="position:absolute;left:1em;top:1em;">
+		<div style="position:fixed;right:0;margin:1em;">
+		  {{loginButtons}}
+		</div>
+		
+		<h2>Github Stat Tracker: Total lines of code</h2>
+
+		{{#if loggingIn}}
+			<p>Logging in...</p>
+		{{else}}
+			{{#if currentUser}}
+				{{> stats}}
+			{{else}}
+				<h4>You have to log in first!</h4>
+			{{/if}}
+		{{/if}}
+	</div>
+
+</body>
+
+
+<template name="stats">
+
+	<p>Input Github username below</p>
+	<input type="text" id="name"/>
+
+	<br>
+
+	<button onclick="parse()" id="parse">Calculate lines!</button>
+
+	<br>
+	<br>
+	
+	<p>Code written by <span id="n"><b>Nobody</b></span>: <span id="s"><b>Nothing</b></span></p>
+
+</template>
