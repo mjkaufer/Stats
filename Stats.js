@@ -4,7 +4,7 @@ if (Meteor.isClient) {
     'click #parse': function () {
       // template data, if any, is available in 'this'
       parse();
-      $('#n').html("<b>" + $('#name').val() + "</b");
+      $('#n').html("<b><a href='https://github.com/" + $('#name').val() + "'>" + $('#name').val() + "</a></b");
       
 
     }
@@ -58,9 +58,9 @@ function parse(){
 
   var ret = "";
   for(var i in lines)
-    ret += i.charAt(0).toUpperCase() + i.slice(1) + ": <b>" + lines[i] + "</b>; ";
+    ret += '<span id="' + i + '">' + i.charAt(0).toUpperCase() + i.slice(1) + ": <b>" + lines[i] + "</b></span>";
 
-  ret+= "Commits: <b>" + commits + "</b>";
+  ret+= "<span id='commits'>Commits: <b>" + commits + "</b></span></span>";
   $('#s').html(ret);
   return ret;
 

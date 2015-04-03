@@ -1,1 +1,68 @@
-/* CSS declarations go here */
+p#codeReport {
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    background: rgb(230, 241, 246);
+}
+
+div#container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    border: 3px solid rgb(230, 241, 246);
+    margin-top: 10px;
+    background: whitesmoke;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+button#parse {
+    margin-bottom: 10px;
+}
+
+span#s span {
+    width: 100%;
+    display: block;
+    padding-left: 20px;
+    background-repeat: no-repeat;
+    background-size: 60px;
+    background-position: -20px -5px;
+}
+
+input#name {
+    margin-right: 5px;
+}
+
+div#inputContainer {
+    text-align: center;
+}
+
+div#titleContainer {
+  margin-right: auto;
+  margin-left: auto;
+  width: 90%;
+}
+
+img#githubLogo {
+  margin: -5px 0px 5px 5px;
+  float: left;
+}
+
+span#total {
+    background-image: url('https://octicons.github.com/img/og/history.png');
+}
+
+span#additions {
+    background-image: url('https://octicons.github.com/img/og/plus.png');
+}
+
+span#deletions {
+    background-image: url('https://octicons.github.com/img/og/diff-removed.png');
+}
+
+span#commits {
+    background-image: url('https://octicons.github.com/img/og/git-commit.png');
+}
