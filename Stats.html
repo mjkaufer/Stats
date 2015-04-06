@@ -3,12 +3,14 @@
 </head>
 
 <body>
-	<div style="position:absolute;left:1em;top:1em;">
+	<div>
 		<div style="position:fixed;right:0;margin:1em;">
 		  {{loginButtons}}
 		</div>
-		
-		<h2>Github Stat Tracker: Total lines of code</h2>
+		<div id="titleContainer">
+			<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/2000px-Octicons-mark-github.svg.png" id="githubLogo">
+			<h2>Github Stat Tracker: Total lines of code</h2>
+		</div>
 
 		{{#if loggingIn}}
 			<p>Logging in...</p>
@@ -26,16 +28,13 @@
 
 <template name="stats">
 
-	<p>Input Github username below</p>
-	<input type="text" id="name"/>
-
-	<br>
-
-	<button onclick="parse()" id="parse">Calculate lines!</button>
-
+	<div id="inputContainer">
+		<input type="text" id="name" placeholder="Input Github username" />
+		<button onclick="parse()" id="parse">Calculate lines!</button>
+	</div>
 	<br>
 	<br>
 	
-	<p>Code written by <span id="n"><b>Nobody</b></span>: <span id="s"><b>Nothing</b></span></p>
+	<p id="codeReport">Code written by: <span id="n"><b>Nobody</b></span>: <span id="s"><b>Nothing</b></span></p>
 
 </template>
