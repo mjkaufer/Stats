@@ -43,12 +43,13 @@ div#inputContainer {
 div#titleContainer {
   margin-right: auto;
   margin-left: auto;
-  width: 90%;
+  width: 60%;
 }
 
 img#githubLogo {
-  margin: -5px 0px 5px 5px;
+  margin: -5px 5px 5px 5px;
   float: left;
+  width: 40px;
 }
 
 span#total {
