@@ -5,7 +5,7 @@
 <body>
 	<div>
 		<div style="position:fixed;right:0;margin:1em;">
-		  {{loginButtons}}
+		  {{> loginButtons}}
 		</div>
 		<div id="titleContainer">
 			<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/2000px-Octicons-mark-github.svg.png" id="githubLogo">
@@ -16,7 +16,14 @@
 			<p>Logging in...</p>
 		{{else}}
 			{{#if currentUser}}
-				{{> stats}}
+
+				<div class="row">
+					<div class="col-md-3"></div>
+					<div class="col-md-6">
+						{{> stats}}
+					</div>
+					<div class="col-md-3"></div>
+				</div>
 			{{else}}
 				<h4>You have to log in first!</h4>
 			{{/if}}
@@ -28,13 +35,15 @@
 
 <template name="stats">
 
-	<div id="inputContainer">
-		<input type="text" id="name" placeholder="Input Github username" />
-		<button onclick="parse()" id="parse">Calculate lines!</button>
+	<div id="inputContainer" class="form-group">
+		<input type="text" id="name" placeholder="Input Github username" class="form-control"/>
+		<br>
+		<button id="parse" class="btn btn-success">Calculate lines!</button>
 	</div>
 	<br>
 	<br>
 	
 	<p id="codeReport">Code written by: <span id="n"><b>Nobody</b></span>: <span id="s"><b>Nothing</b></span></p>
+	
 
 </template>

@@ -71,7 +71,18 @@ function parse(){
 function nonasync(u, cb){//so it's only executed once last call has been rendered
 
   $.ajax({
-    url: u + "?access_token=" + Meteor.user().services.github.accessToken,
+    url: u + "?access_token=" + Meteor.user().profile.github.accessToken,
+    success: cb,
+    async:false,
+    error:function(){/*alert('something went wrong :(')*/}
+  });
+
+}
+
+function async(u, cb){//so it's only executed once last call has been rendered
+
+  $.ajax({
+    url: u + "?access_token=" + Meteor.user().profile.github.accessToken,
     success: cb,
     async:false,
     error:function(){/*alert('something went wrong :(')*/}
@@ -96,4 +107,19 @@ if (Meteor.isServer) {
   Meteor.startup(function () {
     // code to run on server at startup
   });
+
+
+  Accounts.onCreateUser(function(options, user) {
+    if (options.profile) {
+      user.profile = options.profile;
+    }
+   
+    user.profile.github = {};
+    user.profile.github.accessToken = user.services.github.accessToken;
+    user.profile.github.email = user.services.github.email;
+    user.profile.github.username = user.services.github.username;
+   
+    return user;
+  });
+
 }

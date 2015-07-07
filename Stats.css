@@ -67,3 +67,7 @@ span#deletions {
 span#commits {
     background-image: url('https://octicons.github.com/img/og/git-commit.png');
 }
+
+li{
+    list-style-type: none;
+}
